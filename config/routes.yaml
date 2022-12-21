@@ -1,0 +1,9 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+message:
+     path: /helloworld/message
+     controller: App\Controller\HelloWorldController::message
+luckynumber:
+    path: /lucky/number
+    controller: App\Controller\LuckyController::number
