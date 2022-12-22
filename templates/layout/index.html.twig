@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block title %}Home page{% endblock %}
+
+{% block body %}
+
+<h6>{{ name }} is {{ age }} years old.</h6>
+
+{{ "%s is %d years old" | format(name, age) }}
+
+<br>
+
+{{ name }}'s birthday is on {{dob}}
+
+<h2>List of words</h2>
+
+<ul>
+{% for word in words  %}
+    <li>{{ word }}</li>
+{% endfor %}
+</ul>
+<br>
+<p> The array has {{ words | length }} elements </p>
+{# To join #}
+<p> Joined elements {{ words | join(',')}} </p>
+<h4> {{ msg | title }} </h4>
+<ul>
+    {% for word in words|slice(2, 4) %}
+        <li>{{ word }}</li>
+    {% endfor %}    
+    </ul>
+    {% set sorted = words | sort %}
+
+<ul>
+{% for word in sorted %}
+    <li>{{ word }}</li>
+{% endfor %}
+</ul>
+
+<ul>
+Using LOOPS -
+{% for i in range(1,5) %}
+{% if i==5 %}
+  {{ i }}
+{% else %}
+  {{i}},
+{% endif %}
+{% endfor %}
+</ul>
+
+Time is : {{ "now" | date('d/m/Y') }}
+{% endblock %}
