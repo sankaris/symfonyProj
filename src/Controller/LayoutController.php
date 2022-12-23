@@ -25,4 +25,12 @@ class LayoutController extends AbstractController
             'dob' => $dob
         ]);
     }
+
+    /**
+     * @Route("/layout/inherit",name="inherit")
+     */
+    public function inherit()
+    {
+        return $this->render('layout/child.html.twig');
+    }
 }

@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+{% block title %} Sample Form {% endblock %}
+{% block body %}
+<h4> Welcome {{ name }} </h4>
+
+{% if password |length > 8 %}
+   <p> Your Password is strong </p>
+{% else %}
+   <p> You have a weak password </p>
+{% endif %}
+{% endblock %}
