@@ -12,6 +12,21 @@ class QuestionController extends AbstractController
 {
 
     /**
+     * @Route("/{page<\d+>}", name="app_homepage")
+     */
+    /*public function homepage(QuestionRepository $repository, int $page = 1)
+    {
+        /*$queryBuilder = $repository->createAskedOrderedByNewestQueryBuilder();
+        $pagerfanta = new Pagerfanta(new QueryAdapter($queryBuilder));
+        $pagerfanta->setMaxPerPage(5);
+        $pagerfanta->setCurrentPage($page);
+        return $this->render('question/homepage.html.twig', [
+            'pager' => $pagerfanta,
+        ]);*/
+        /*return new Response("Successfully viewing the logged in page");
+    }*/
+
+    /**
      * @Route("/questions/{slug}",name="app_question_show")
      */
     public function show($slug,MarkdownParserInterface $markdownParser,CacheInterface $cache)

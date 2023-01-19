@@ -7,3 +7,5 @@
 #luckynumber:
  #   path: /lucky/number
   #  controller: App\Controller\LuckyController::number
+api_login_check:
+    path: /api/login_check
