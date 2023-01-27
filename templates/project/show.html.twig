@@ -1,0 +1,42 @@
+{% extends 'project/base.html.twig' %}
+
+{% block title %}Project{% endblock %}
+
+{% block body %}
+    <div class ="container">
+            <h2 class="text-center mb-5 mt-3">Project</h2>
+            <div class="card">
+                <div class="card-header">
+                    <a class="btn btn-outline-info float-right" href="{{ path('app_project_index') }}"> 
+                        View All Projects
+                    </a>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ project.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <td>{{ project.name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>{{ project.description }}</td>
+                            </tr>
+                            <tr>
+                                <th>Created_at</th>
+                                <td>{{ project.createdAt ? project.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Updated_at</th>
+                                <td>{{ project.updatedAt ? project.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+{% endblock %}
