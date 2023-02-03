@@ -24,9 +24,26 @@ services:
     #App\Controller\:
       #  resource: '../src/Controller'
      #   tags: ['controller.service_arguments']
-    
+    Redis:
+        # you can also use \RedisArray, \RedisCluster or \Predis\Client classes
+        class:  \Predis\Client
+        calls:
+            - connect:
+                - '%env(REDIS_HOST)%'
+                - '%env(int:REDIS_PORT)%'
+
     App\Service\MessageGenerator: ~
 
-
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
+        arguments:
+            - '%env(DATABASE_URL)%'
+            - { db_table: 'sessions', db_id_col: 'guid' }
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler:
+       arguments:
+         - '@Redis'
+         - prefix: custom_vals
+         - ttl: 3600
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    Snc\RedisBundle\Client\Phpredis\Client:
+        alias: snc_redis.default
